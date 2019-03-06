@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Basic Information</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://www.gstatic.com/firebasejs/5.1.0/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.1.0/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.1.0/firebase-database.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+	  integrity="sha-snip" crossorigin="anonymous"></script>
+	<script src="functions.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+		integrity="sha-snip" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="CSS/style.css">
+</head>
+<body onload="login.initEditBusiness()">
+	<div class="container profileContent">
+		<div id="userControlPanel"></div>
+	</div>
+	<div class="container mainContent">
+		<div id="smallLogo"><a href="profile.html"><img src="pictures/snip.png" width="200"/></a></div>
+		<h2>Basic Information</h2>
+		<form method="post" id="basicInfoForm" onsubmit="return editBusiness.saveBasicInfoHandler(this);">
+			<div class="form-group">
+				<input class="form-control" type="text" id="name" placeholder="Name" onkeyup="businessFunc.exitPrompt()">
+			</div>
+			<div class="form-group">
+				<input class="form-control" type="text" id="address" placeholder="Address 1" onkeyup="businessFunc.exitPrompt()">
+			</div>
+			<div class="form-group">
+				<input class="form-control" type="text" id="address2" placeholder="Address 2 (optional)" onkeyup="businessFunc.exitPrompt()">
+			</div>
+			<div class="form-group">
+				<input class="form-control" type="text" id="city" placeholder="City" onkeyup="businessFunc.exitPrompt()">
+			</div>
+			<div class="row">
+				<div class="col-md-4">
+					<div class="form-group">
+						<input class="form-control" type="text" id="province" placeholder="Province / State" onkeyup="businessFunc.exitPrompt()">
+					</div>
+				</div>
+				<div class="col-md-4">
+						<div class="form-group">
+							<input class="form-control" type="text" id="country" placeholder="Country" onkeyup="businessFunc.exitPrompt()">
+						</div>
+					</div>
+				<div class="col-md-4">
+					<div class="form-group">
+						<input class="form-control" type="text" id="postalCode" placeholder="Postal Code" onkeyup="businessFunc.exitPrompt()">
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+						<input class="form-control" type="tel" id="phone" placeholder="Phone Number" onkeyup="businessFunc.exitPrompt()">
+						<small class="form-text text-muted">Changing your phone number requires phone re-verification.</small>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<input class="form-control" type="url" id="website" placeholder="Website (optional)" onkeyup="businessFunc.exitPrompt()">
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<input class="form-control" type="email" id="email" placeholder="Business Email" onkeyup="businessFunc.exitPrompt()">
+			</div>
+			<div id="loader" hidden></div>
+			<div class="form-group" id="warning"></div>
+			<div class="text-center">
+				<input type="submit" class="btn btnGeneric" value="Save and Continue" id="btnSave">&emsp;
+				<a href="javascript.void(0);" onclick="editBusiness.exitEditBusiness(); return false;">Cancel</a>
+			</div>
+		</form>
+	</div>
+	<div class="modal fade" id="modalMessage" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content" id="modalMessageContent"></div>
+		</div>
+	</div>
+	<footer id="footer"></footer>
+</body>
+</html>
